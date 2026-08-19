@@ -1,0 +1,16 @@
+# Dependencies
+node_modules/
+
+# Environment / secrets (matches at any depth, in every project subfolder)
+.env
+.env.*
+!.env.example
+
+secrets/
+**/secrets/
+
+*.pem
+*.key
+*.pfx
+*.p12
+*credential*

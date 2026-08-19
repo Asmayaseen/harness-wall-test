@@ -1,0 +1,29 @@
+{
+  "permissions": {
+    "deny": [
+      "Read(./sample-repo/.env)",
+      "Read(./sample-repo/secrets/**)",
+      "Bash(rm -rf *)",
+      "Bash(git push --force *)",
+      "Bash(*curl*)",
+      "Bash(*wget*)",
+      "WebFetch"
+    ],
+    "allow": [
+      "Bash(git push origin claude/*)"
+    ]
+  },
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash|Read",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "powershell.exe -ExecutionPolicy Bypass -File \"$CLAUDE_PROJECT_DIR\"/.claude/hooks/fence-guard.ps1"
+          }
+        ]
+      }
+    ]
+  }
+}
