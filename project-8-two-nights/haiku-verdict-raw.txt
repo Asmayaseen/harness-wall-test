@@ -1,0 +1,10 @@
+{
+  "verdict": "NEEDS_WORK",
+  "reasons": [
+    "No unit tests provided for new function despite being customer-facing calculation logic",
+    "Missing edge-case handling: negative percent values, percent > 100, and zero/null inputs not validated",
+    "No input validation or error handling; calculateDiscount(100, 150) silently returns -50 instead of rejecting invalid discount percentage",
+    "Function lacks JSDoc or inline comments explaining parameter constraints and return value semantics"
+  ],
+  "risk": "MEDIUM"
+}
